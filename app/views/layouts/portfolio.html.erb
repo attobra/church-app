@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
   <title>My Church Membership</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -36,11 +41,11 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="<%= member_accounts_path %>"> All Members</a></li>
-        <li><a href="<%=edit_member_account_path(current_user.id)%>">Update Info</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><a href="#">Logged in as <strong><%= current_user.email %></a></strong></li>
+          <li><a href="<%=edit_member_account_path(current_user.id)%>">Update Info</a></li>
           <li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </li>
         <% else %>

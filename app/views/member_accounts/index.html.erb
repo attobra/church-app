@@ -5,7 +5,7 @@
      <% @member_accounts.each do |member_account| %>
      <div class="col-sm-3">
       <p><%= "#{member_account.first_name} #{member_account.last_name}" %></p>
-     <a href="<%= member_account_path(member_account.id) %>"><img src="<%= polymorphic_url(member_account.picture) %>" class="img-responsive" style="width:100%" alt="Image"> </a>
+      <a href="<%= member_account_path(member_account.id) %>"><img src="<%= polymorphic_url(member_account.picture) %>" class="img-responsive" style="width:100%" alt="Image"> </a>
     </div>
      <% end %>
   </div>
